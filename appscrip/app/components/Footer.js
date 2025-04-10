@@ -56,7 +56,7 @@ const Footer = () => {
           <div className={styles.socials}>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
               <Image
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg"
+                src="/linkedin-icon.png"
                 alt="LinkedIn"
                 width={24}
                 height={24}
@@ -64,7 +64,7 @@ const Footer = () => {
             </a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
               <Image
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg"
+                src="/insta-icon.png"
                 alt="Instagram"
                 width={24}
                 height={24}
@@ -74,12 +74,48 @@ const Footer = () => {
 
           <h4>mettā muse ACCEPTS</h4>
           <div className={styles.payments}>
-            <Image src="https://img.icons8.com/color/48/google-pay.png" alt="GPay" width={48} height={48} />
-            <Image src="https://img.icons8.com/color/48/visa.png" alt="Visa" width={48} height={48} />
-            <Image src="https://img.icons8.com/color/48/mastercard.png" alt="Mastercard" width={48} height={48} />
-            <Image src="https://img.icons8.com/color/48/amex.png" alt="Amex" width={48} height={48} />
-            <Image src="https://img.icons8.com/color/48/apple-pay.png" alt="Apple Pay" width={48} height={48} />
-            <Image src="https://img.icons8.com/color/48/discover.png" alt="Discover" width={48} height={48} />
+            <Image
+              src="https://img.icons8.com/color/48/google-pay.png"
+              alt="GPay"
+              width={48}
+              height={48}
+              className={styles.paymentIcon}
+            />
+            <Image
+              src="https://img.icons8.com/color/48/visa.png"
+              alt="Visa"
+              width={48}
+              height={48}
+              className={styles.paymentIcon}
+            />
+            <Image
+              src="https://img.icons8.com/color/48/mastercard.png"
+              alt="Mastercard"
+              width={48}
+              height={48}
+              className={styles.paymentIcon}
+            />
+            <Image
+              src="https://img.icons8.com/color/48/amex.png"
+              alt="Amex"
+              width={48}
+              height={48}
+              className={styles.paymentIcon}
+            />
+            <Image
+              src="https://img.icons8.com/color/48/apple-pay.png"
+              alt="Apple Pay"
+              width={48}
+              height={48}
+              className={styles.paymentIcon}
+            />
+            <Image
+              src="https://img.icons8.com/color/48/discover.png"
+              alt="Discover"
+              width={48}
+              height={48}
+              className={styles.paymentIcon}
+            />
           </div>
         </div>
       </div>
