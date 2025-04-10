@@ -36,11 +36,21 @@ export default function Landingpage() {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+  
+      // Trigger toggleFilter if screen size is less than 768px
+      if (window.innerWidth < 768) {
+        setFilterVisible(false); // Hide the filter when screen size is below 768px
+      } else {
+        setFilterVisible(true); // Show the filter for larger screen sizes
+      }
     };
-    handleResize();
+  
+    handleResize(); // Check screen size initially on mount
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+  
+    return () => window.removeEventListener('resize', handleResize); // Cleanup on unmount
   }, []);
+  
 
   // Filter logic
   const filteredProducts = productList.filter((product) => {
@@ -110,7 +120,7 @@ export default function Landingpage() {
 
 export async function getServerSideProps() {
   const products = await api();
-  console.log("hello-product",products)
+
   return {
    
     props: { products },

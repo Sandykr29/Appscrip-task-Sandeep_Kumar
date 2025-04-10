@@ -1,4 +1,4 @@
-// components/ProductGrid.js
+
 import React from 'react';
 import styles from './ProductGrid.module.css';
 
