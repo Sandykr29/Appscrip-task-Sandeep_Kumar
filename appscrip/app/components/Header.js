@@ -16,8 +16,8 @@ const Header = () => {
      <div className={styles.topContainer}>
 
         <div className={styles.logo}>
-          {/* Use next/image to load the logo from the public folder */}
-          <Image src="/logo.png" alt="Metta Muse Logo" width={36} height={36} />
+        
+          <Image src="/logo.png" alt="Logo-icon" width={36} height={36} />
         </div>
 
         <h1>LOGO</h1>
