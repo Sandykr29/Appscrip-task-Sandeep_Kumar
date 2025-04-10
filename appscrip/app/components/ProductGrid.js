@@ -45,8 +45,23 @@ const ProductGrid = ({ products, selectedSort, onSortChange, isFilterVisible,tog
                 alt={product.title}
                 className={styles.image}
               />
-              <p className={styles.name}>{product.title}</p>
-              <p className={styles.note}>${product.price}</p>
+              <p className={styles.name} style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>
+                {product.title.length > 23 ? `${product.title.slice(0, 23)}...` : product.title}
+              </p>
+              <p className={styles.note} style={{ fontSize: '0.9rem' }}>
+                Sign in or Create an account to see pricing
+              </p>
+              <img
+                src="/heart.png"
+                alt="Favorite"
+                style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  right: '10px',
+                  width: '20px',
+                  height: '20px',
+                }}
+              />
             </div>
           ))}
         </div>
