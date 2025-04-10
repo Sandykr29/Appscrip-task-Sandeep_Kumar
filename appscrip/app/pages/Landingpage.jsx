@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Header from '../components/Header';
 import FilterSidebar from '../components/FilterSidebar';
 import ProductGrid from '../components/ProductGrid';
 import Footer from '../components/Footer';
-import { api } from '../utils/api'; // Import the API utility
+import { api } from '../utils/api';
 
-export default function Landingpage({ products }) {
+export default function Landingpage() {
   const [filters, setFilters] = useState({
     electronics: false,
     jewelery: false,
@@ -18,9 +17,18 @@ export default function Landingpage({ products }) {
 
   const [sortOrder, setSortOrder] = useState('recommended');
   const [isMobile, setIsMobile] = useState(false);
+  const [productList, setProductList] = useState([]); // 🆕 State to store product data
 
-  // Ensure products is always an array
-  const safeProducts = Array.isArray(products) ? products : [];
+  // On mount: put props.products into state
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await api(); // Call the API function
+      setProductList(data)
+      console.log("Fetched data in App.jsx:", data); // ✅ This will log the products
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +40,7 @@ export default function Landingpage({ products }) {
   }, []);
 
   // Filter logic
-  const filteredProducts = safeProducts.filter((product) => {
+  const filteredProducts = productList.filter((product) => {
     const category = product.category.toLowerCase();
     return (
       (filters.electronics && category === 'electronics') ||
@@ -54,7 +62,7 @@ export default function Landingpage({ products }) {
       case 'highToLow':
         return [...products].sort((a, b) => b.price - a.price);
       case 'newest':
-        return [...products].sort((a, b) => b.id - a.id); // dummy id-based sort
+        return [...products].sort((a, b) => b.id - a.id);
       case 'popular':
         return [...products].sort((a, b) => b.rating?.count - a.rating?.count);
       default:
@@ -66,30 +74,6 @@ export default function Landingpage({ products }) {
 
   return (
     <>
-      {/* <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Store",
-              name: "Mettā Muse",
-              url: "https://your-netlify-site.netlify.app",
-              logo: "https://your-site.com/logo.png",
-              sameAs: [
-                "https://www.instagram.com/mettamuse",
-                "https://www.linkedin.com/company/mettamuse",
-              ],
-            }),
-          }}
-        />
-        <title>Discover Our Products | Appscrip Task</title>
-        <meta
-          name="description"
-          content="Browse products with filtering and sorting. Assignment for Appscrip using Next.js."
-        />
-      </Head> */}
-
       <Header />
 
       <main
@@ -103,17 +87,6 @@ export default function Landingpage({ products }) {
         </div>
 
         <div style={{ flex: 1, padding: isMobile ? '0 10px' : '0 20px' }}>
-          {/* Title Section */}
-          {/* <section style={{ padding: '40px 0', textAlign: 'center' }}>
-            <h1>DISCOVER OUR PRODUCTS</h1>
-            <p style={{ marginTop: '10px', color: '#555' }}>
-              Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus
-              scelerisque. Dolor integer scelerisque nibh amet mi ut elementum
-              dolor.
-            </p>
-          </section> */}
-
-          {/* Product Grid */}
           <ProductGrid
             products={sortedProducts}
             selectedSort={sortOrder}
@@ -128,6 +101,10 @@ export default function Landingpage({ products }) {
 }
 
 export async function getServerSideProps() {
-  return await api(); // Use the API utility for fetching products
+  const products = await api();
+  console.log("hello-product",products)
+  return {
+   
+    props: { products },
+  };
 }
-
