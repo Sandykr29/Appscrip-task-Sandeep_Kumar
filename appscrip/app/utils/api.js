@@ -5,10 +5,10 @@ export async function api() {
       throw new Error("Failed to fetch products");
     }
     const products = await res.json();
-    console.log("Fetched products:", products); // Server-side log
+  
     return products;
   } catch (error) {
-    console.error("Error fetching products:", error);
+   
     return [];
   }
 }

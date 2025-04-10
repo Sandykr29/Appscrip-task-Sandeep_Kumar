@@ -16,8 +16,7 @@ const Header = () => {
      <div className={styles.topContainer}>
 
         <div className={styles.logo}>
-        
-          <Image src="/logo.png" alt="Logo-icon" width={36} height={36} />
+          <img src="/logo.png" alt="Logo-icon" width="36" height="36" />
         </div>
 
         <h1>LOGO</h1>

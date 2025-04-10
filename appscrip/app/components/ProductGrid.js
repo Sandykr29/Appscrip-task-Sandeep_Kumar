@@ -54,13 +54,7 @@ const ProductGrid = ({ products, selectedSort, onSortChange, isFilterVisible,tog
               <img
                 src="/heart.png"
                 alt="Favorite"
-                style={{
-                  position: 'absolute',
-                  bottom: '10px',
-                  right: '10px',
-                  width: '20px',
-                  height: '20px',
-                }}
+                className={styles.favoriteIcon}
               />
             </div>
           ))}

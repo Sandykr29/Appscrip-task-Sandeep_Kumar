@@ -28,7 +28,6 @@ export default function Landingpage() {
     const fetchData = async () => {
       const data = await api();
       setProductList(data)
-      console.log("Fetched data in App.jsx:", data); 
     };
 
     fetchData();
