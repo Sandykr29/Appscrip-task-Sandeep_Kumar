@@ -5,14 +5,31 @@ import styles from './Footer.module.css';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.subscribe}>
-        <h4>BE THE FIRST TO KNOW</h4>
-        <p>Sign up for updates from mettā muse.</p>
-        <div className={styles.inputGroup}>
-          <input type="email" placeholder="Enter your e-mail..." />
-          <button>SUBSCRIBE</button>
+      <div className={styles.connect}>
+        <div className={styles.subscribe}>
+          <h4>BE THE FIRST TO KNOW</h4>
+          <p>Sign up for updates from mettā muse.</p>
+          <div className={styles.inputGroup}>
+            <input type="email" placeholder="Enter your e-mail..." />
+            <button>SUBSCRIBE</button>
+          </div>
+        </div>
+        
+        <div className={styles.column}>
+          <h4>CONTACT US</h4>
+          <p>+44 221 133 8580</p>
+          <p>customercare@mettamuse.com</p>
+          <br/>
+          <h4>CURRENCY</h4>
+          <p>🌐 USD</p>
+          <p className={styles.note}>
+            Transactions will be completed in Euros and a currency reference is available on hover.
+          </p>
         </div>
       </div>
+      <hr className={styles.hrLine} />
+      <br/>
+      <br/>
 
       <div className={styles.columns}>
         <div className={styles.column}>
@@ -40,16 +57,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className={styles.column}>
-          <h4>CONTACT US</h4>
-          <p>+44 221 133 8580</p>
-          <p>customercare@mettamuse.com</p>
-          <h4>CURRENCY</h4>
-          <p>🌐 USD</p>
-          <p className={styles.note}>
-            Transactions will be completed in Euros and a currency reference is available on hover.
-          </p>
-        </div>
 
         <div className={styles.column}>
           <h4>FOLLOW US</h4>

@@ -18,7 +18,7 @@ export default function Landingpage() {
   const [sortOrder, setSortOrder] = useState('recommended');
   const [isMobile, setIsMobile] = useState(false);
   const [productList, setProductList] = useState([]);
-  const [isFilterVisible, setFilterVisible] = useState(true); // State for sidebar visibility
+  const [isFilterVisible, setFilterVisible] = useState(true);
 
   const toggleFilter = () => {
     setFilterVisible(!isFilterVisible);
@@ -98,7 +98,7 @@ export default function Landingpage() {
             selectedSort={sortOrder}
             onSortChange={setSortOrder}
             isFilterVisible={isFilterVisible} 
-            toggleFilter={toggleFilter}// Pass sidebar visibility
+            toggleFilter={toggleFilter}
           />
         </div>
       </main>

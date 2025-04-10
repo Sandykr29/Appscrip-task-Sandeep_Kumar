@@ -3,11 +3,33 @@
   color: #fff;
   padding: 40px 20px;
   font-size: 14px;
+padding:5% 10%;
+
+
+}
+
+.connect {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  gap: 20px;
+ 
+}
+
+.subscribe,
+.column {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
 }
 
 .subscribe {
-  text-align: center;
-  margin-bottom: 40px;
+  flex: 2; 
+}
+
+.column {
+  flex: 1;
 }
 
 .subscribe h4 {
@@ -17,7 +39,7 @@
 
 .inputGroup {
   display: flex;
-  justify-content: center;
+ 
   gap: 10px;
   margin-top: 10px;
 }
@@ -40,11 +62,6 @@
   flex-wrap: wrap;
   gap: 40px;
   justify-content: space-between;
-}
-
-.column {
-  flex: 1;
-  min-width: 200px;
 }
 
 .column h4 {
@@ -79,13 +96,19 @@
 
 .payments {
   display: flex;
-  gap: 10px; /* Space between payment icons */
+  gap: 10px; 
   margin-top: 10px;
 }
 
 .paymentIcon {
-  width: 48px; /* Set a consistent width */
-  height: 48px; /* Set a consistent height */
+  width: 48px; 
+  height: 48px; 
+}
+
+.hrLine {
+  margin-top: 20px;
+  border: none;
+  border-top: 1px solid #ccc; 
 }
 
 .bottomLine {
@@ -93,4 +116,8 @@
   margin-top: 40px;
   font-size: 12px;
   opacity: 0.6;
+}
+
+.connect{
+margin-top: 10px;
 }
