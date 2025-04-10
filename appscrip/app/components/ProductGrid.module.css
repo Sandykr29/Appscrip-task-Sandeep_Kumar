@@ -144,9 +144,9 @@
     gap: 20px;
   }
 
-  .expandedGrid .grid {
+  /* .expandedGrid .grid {
     grid-template-columns: 1fr;
-  }
+  } */
 
   .card {
     align-items: flex-start;
