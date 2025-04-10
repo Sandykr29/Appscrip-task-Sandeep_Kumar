@@ -17,14 +17,18 @@ export default function Landingpage() {
 
   const [sortOrder, setSortOrder] = useState('recommended');
   const [isMobile, setIsMobile] = useState(false);
-  const [productList, setProductList] = useState([]); // 🆕 State to store product data
+  const [productList, setProductList] = useState([]);
+  const [isFilterVisible, setFilterVisible] = useState(true); // State for sidebar visibility
 
-  // On mount: put props.products into state
+  const toggleFilter = () => {
+    setFilterVisible(!isFilterVisible);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
-      const data = await api(); // Call the API function
+      const data = await api();
       setProductList(data)
-      console.log("Fetched data in App.jsx:", data); // ✅ This will log the products
+      console.log("Fetched data in App.jsx:", data); 
     };
 
     fetchData();
@@ -82,15 +86,20 @@ export default function Landingpage() {
           flexDirection: isMobile ? 'column' : 'row',
         }}
       >
-        <div style={{ width: isMobile ? '100%' : '250px' }}>
-          <FilterSidebar filters={filters} setFilters={setFilters} />
-        </div>
+        {isFilterVisible && (
+          <div style={{ width: isMobile ? '100%' : '250px' }}>
+            <FilterSidebar filters={filters} setFilters={setFilters} />
+          </div>
+        )}
 
         <div style={{ flex: 1, padding: isMobile ? '0 10px' : '0 20px' }}>
+      
           <ProductGrid
             products={sortedProducts}
             selectedSort={sortOrder}
             onSortChange={setSortOrder}
+            isFilterVisible={isFilterVisible} 
+            toggleFilter={toggleFilter}// Pass sidebar visibility
           />
         </div>
       </main>

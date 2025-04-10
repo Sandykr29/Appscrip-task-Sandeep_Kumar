@@ -13,7 +13,9 @@ const FilterSidebar = ({ filters, setFilters }) => {
 
   return (
     <aside className={styles.sidebar}>
-      <h2>Filters</h2>
+     
+      <label><input type="checkbox"/>CUSTOMIZBLE</label>
+     <br/>
       <div className={styles.filterSection}>
         <h3>Category</h3>
         <label>
@@ -53,7 +55,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
           {"Women's Clothing"}
         </label>
       </div>
-      {/* Additional filter sections can be added here */}
+      {/* More filter sections can be added here */}
     </aside>
   );
 };

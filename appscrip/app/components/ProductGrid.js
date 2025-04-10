@@ -2,12 +2,28 @@
 import React from 'react';
 import styles from './ProductGrid.module.css';
 
-const ProductGrid = ({ products, selectedSort, onSortChange }) => {
+const ProductGrid = ({ products, selectedSort, onSortChange, isFilterVisible,toggleFilter }) => {
     return (
-      <section className={styles.wrapper}>
+      <section className={`${styles.wrapper} ${!isFilterVisible ? styles.expandedGrid : ''}`}>
         <div className={styles.topBar}>
-          <span>{products.length || 0} ITEMS</span>
-          <button className={styles.filterToggle}>SHOW FILTER</button>
+          <div className={styles.totalItems}>
+            <span>{products.length || 0} ITEMS</span>
+      
+            <button
+              onClick={toggleFilter}
+              style={{
+                cursor: 'pointer',
+                background: 'none',
+                border: 'none',
+                color: 'inherit',
+                font: 'inherit',
+                padding: 0,
+              }}
+            >
+              {isFilterVisible ? '< HIDE FILTER' : '> SHOW FILTER'}
+            </button>
+            
+          </div>
           <select
             className={styles.sortDropdown}
             value={selectedSort}
@@ -38,5 +54,4 @@ const ProductGrid = ({ products, selectedSort, onSortChange }) => {
     );
   };
   
-
 export default ProductGrid;
