@@ -20,6 +20,7 @@ const Footer = () => {
           <p>+44 221 133 8580</p>
           <p>customercare@mettamuse.com</p>
           <br/>
+          <hr/>
           <h4>CURRENCY</h4>
           <p>🌐 USD</p>
           <p className={styles.note}>
@@ -27,7 +28,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <hr className={styles.hrLine} />
+     
       <br/>
       <br/>
 
